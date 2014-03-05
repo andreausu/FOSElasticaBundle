@@ -79,7 +79,7 @@ class ObjectPersister implements ObjectPersisterInterface
     public function deleteById($id)
     {
         try {
-            $this->type->deleteById($id);
+            $this->type->deleteById($id, array('refresh' => true));
         } catch (NotFoundException $e) {}
     }
 
