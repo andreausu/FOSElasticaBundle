@@ -58,6 +58,7 @@ class PopulateCommand extends ContainerAwareCommand
         $this->indexManager = $this->getContainer()->get('fos_elastica.index_manager');
         $this->providerRegistry = $this->getContainer()->get('fos_elastica.provider_registry');
         $this->resetter = $this->getContainer()->get('fos_elastica.resetter');
+        $this->getContainer()->get('doctrine.orm.entity_manager')->getConnection()->exec('SET session wait_timeout = 5000');
     }
 
     /**
